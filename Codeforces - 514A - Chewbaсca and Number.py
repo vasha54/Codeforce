@@ -1,0 +1,55 @@
+"""
+    Codeforces - 514A - Chewbaсca and Number
+
+    Temática : Implementación
+    
+    Idea: 
+
+"""
+ 
+from functools import cmp_to_key, reduce
+from collections import deque, Counter
+ 
+# Comparadores en Estructuras de Datos
+import heapq
+import sys
+import itertools
+ 
+mov_r = [2, 2, -2, -2, 1, -1, 1, -1]
+mov_c = [1, -1, 1, -1, 2, 2, -2, -2]
+ 
+MOD = 10**9 + 7
+MAX = 10**6+10
+INF = 10**9
+# dp = [[0]*(MAX+5) for _ in range((MAX+5))]
+
+def read_nonempty():
+    s = sys.stdin.readline()
+    while s is not None and s.strip() == "":
+        s = sys.stdin.readline()
+    return s.strip()
+
+def solve():
+    input_line = read_nonempty
+    n = str(input_line())
+    answer = ""
+    for x in n:
+        if x == '9':
+            answer = answer + '0'
+        elif x == '8':
+            answer = answer + '1'
+        elif x == '7':
+            answer = answer + '2'
+        elif x == '6':
+            answer = answer + '3'
+        elif x == '5':
+            answer = answer + '4'
+        else:
+            answer = answer + x
+    
+    if answer[0] == '0':
+        answer = '9'+(answer[1:] if len(answer) >= 2 else '')
+    print(answer)
+
+if __name__ == "__main__":
+    solve()
